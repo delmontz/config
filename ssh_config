@@ -13,7 +13,7 @@
 # If you want to change the port on a SELinux system, you have to tell
 # SELinux about this change.
 # semanage port -a -t ssh_port_t -p tcp #PORTNUMBER
-Port 2234 # Port•ÏX
+Port 49794 # Port•ÏX
 #AddressFamily any
 #ListenAddress 0.0.0.0
 #ListenAddress ::
@@ -95,7 +95,7 @@ GSSAPIAuthentication no # GSSAPI”FØ‚ğ‹Ö~
 # and ChallengeResponseAuthentication to 'no'.
 # WARNING: 'UsePAM no' is not supported in Red Hat Enterprise Linux and may cause several
 # problems.
-UsePAM #PAM‚ğ–³Œø‰»
+UsePAM no    #PAM‚ğ–³Œø‰»
 
 # X11“]‘—‚ğ‹Ö~
 X11Forwarding no
