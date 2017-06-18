@@ -13,13 +13,13 @@
 # If you want to change the port on a SELinux system, you have to tell
 # SELinux about this change.
 # semanage port -a -t ssh_port_t -p tcp #PORTNUMBER
-Port 49794 # Port•ÏX
+Port 49794 # Portå¤‰æ›´
 #AddressFamily any
 #ListenAddress 0.0.0.0
 #ListenAddress ::
 
 # The default requires explicit activation of protocol 1
-Protocol 2 # g—p‚·‚éƒvƒƒgƒRƒ‹‚ğ ssh version 2 ‚ÉŒÀ’è
+Protocol 2 # ä½¿ç”¨ã™ã‚‹ãƒ—ãƒ­ãƒˆã‚³ãƒ«ã‚’ ssh version 2 ã«é™å®š
 
 # HostKey for protocol version 1
 #HostKey /etc/ssh/ssh_host_key
@@ -43,14 +43,14 @@ SyslogFacility AUTHPRIV
 
 # Authentication:
 
-LoginGraceTime 30 # ”FØ‚Ü‚Å‚Ì—P—\ŠÔ
+LoginGraceTime 30 # èªè¨¼ã¾ã§ã®çŒ¶äºˆæ™‚é–“
 PermitRootLogin no
 #StrictModes yes
-MaxAuthTries 6 # s‰ñ”
+MaxAuthTries 6 # è©¦è¡Œå›æ•°
 #MaxSessions 10
 
-RSAAuthentication no # RSA”FØ‚ğ‹Ö~
-PubkeyAuthentication yes # ŒöŠJŒ®”FØ‚ğ‹–‰Â
+RSAAuthentication no # RSAèªè¨¼ã‚’ç¦æ­¢
+PubkeyAuthentication yes # å…¬é–‹éµèªè¨¼ã‚’è¨±å¯
 
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
@@ -72,17 +72,17 @@ AuthorizedKeysFile      .ssh/authorized_keys
 #IgnoreRhosts yes
 
 # To disable tunneled clear text passwords, change to no here!
-PasswordAuthentication no # ƒpƒXƒ[ƒh”FØ‚ğ‹Ö~
-PermitEmptyPasswords no # ƒpƒXƒ[ƒh‚È‚µƒƒOƒCƒ“‚ğ‹Ö~
+PasswordAuthentication no # ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰èªè¨¼ã‚’ç¦æ­¢
+PermitEmptyPasswords no # ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãªã—ãƒ­ã‚°ã‚¤ãƒ³ã‚’ç¦æ­¢
 
 # Change to no to disable s/key passwords
-ChallengeResponseAuthentication no # ƒ`ƒƒƒŒƒ“ƒWƒŒƒXƒ|ƒ“ƒX”FØ‚ğ‹Ö~
+ChallengeResponseAuthentication no # ãƒãƒ£ãƒ¬ãƒ³ã‚¸ãƒ¬ã‚¹ãƒãƒ³ã‚¹èªè¨¼ã‚’ç¦æ­¢
 
 # Kerberos options
-KerberosAuthentication no  # ƒPƒ‹ƒxƒƒX”FØ‚ğ‹Ö~
+KerberosAuthentication no  # ã‚±ãƒ«ãƒ™ãƒ­ã‚¹èªè¨¼ã‚’ç¦æ­¢
 
 # GSSAPI options
-GSSAPIAuthentication no # GSSAPI”FØ‚ğ‹Ö~
+GSSAPIAuthentication no # GSSAPIèªè¨¼ã‚’ç¦æ­¢
 
 # Set this to 'yes' to enable PAM authentication, account processing,
 # and session processing. If this is enabled, PAM authentication will
@@ -95,23 +95,23 @@ GSSAPIAuthentication no # GSSAPI”FØ‚ğ‹Ö~
 # and ChallengeResponseAuthentication to 'no'.
 # WARNING: 'UsePAM no' is not supported in Red Hat Enterprise Linux and may cause several
 # problems.
-UsePAM no    #PAM‚ğ–³Œø‰»
+UsePAM no    #PAMã‚’ç„¡åŠ¹åŒ–
 
-# X11“]‘—‚ğ‹Ö~
+# X11è»¢é€ã‚’ç¦æ­¢
 X11Forwarding no
 
-# óM—p‚ÌqƒvƒƒZƒX‚ğì‚èrootŒ ŒÀ‚ğ•ª—£
+# å—ä¿¡ç”¨ã®å­ãƒ—ãƒ­ã‚»ã‚¹ã‚’ä½œã‚Šrootæ¨©é™ã‚’åˆ†é›¢
 UsePrivilegeSeparation sandbox
 
-# ƒoƒi[”ñ•\¦
+# ãƒãƒŠãƒ¼éè¡¨ç¤º
 Banner none
 
 # Accept locale-related environment variables
-#ƒT[ƒo[‘¤‚ÖŠÂ‹«•Ï”‚ğ“n‚µ‚½‚­‚È‚¢‚Ì‚Å‘S‚ÄƒRƒƒ“ƒgƒAƒEƒg‚·‚é
+#ã‚µãƒ¼ãƒãƒ¼å´ã¸ç’°å¢ƒå¤‰æ•°ã‚’æ¸¡ã—ãŸããªã„ã®ã§å…¨ã¦ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆã™ã‚‹
 #AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
 #AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
 #AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
 #AcceptEnv XMODIFIERS
 
-# rootƒƒOƒCƒ“‚ğ‹Ö~
+# rootãƒ­ã‚°ã‚¤ãƒ³ã‚’ç¦æ­¢
 PermitRootLogin no
