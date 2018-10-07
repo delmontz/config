@@ -44,7 +44,6 @@ SyslogFacility AUTHPRIV
 # Authentication:
 
 LoginGraceTime 30 # 認証までの猶予時間
-PermitRootLogin no
 #StrictModes yes
 MaxAuthTries 6 # 試行回数
 #MaxSessions 10
