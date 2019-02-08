@@ -1,3 +1,11 @@
+# ***************************************************************************************************************************
+#
+#              共通設定　　//// アプリごとの設定は下部にあり　適時部分適用すること
+#
+#　　      　環境に応じてZsh諸々のパスの変更を忘れずに！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+#
+# ***************************************************************************************************************************
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -158,7 +166,21 @@ setopt list_packed
 setopt correct
 SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [Yes/No/Abort/Edit] => "
 
-##################zsh以外
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# エイリアス関連
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
+
+alias gs="git stash"
+alias gco="git checkout B"
+alias gsl="git stash list"
+alias gsd="git stash drop"
+
+# ======================================================================================================================
+#     　　＜要注意！！＞　　　　ここよりインスコブツに応じて、適時適用すること　　　＜要注意！！＞  共通設定は上の方に↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+# ======================================================================================================================
+
 #LSカラー設定 (先に　wget -P /etc/ -nc https://raw.githubusercontent.com/delmontz/server/master/dircolors.256dark　)
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 eval $(dircolors /etc/dircolors.256dark)
@@ -166,3 +188,9 @@ alias ls='gls --color=auto'
 
 #enhancd
 source /Users/barrel/enhancd/init.sh
+
+#nodenv 
+eval "$(nodenv init -)"
+
+#yarn
+export PATH="$PATH:`yarn global bin`"
