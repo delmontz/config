@@ -1,0 +1,42 @@
+version: '2'
+services:
+  wordpress:
+    image: wordpress:latest
+    container_name: wordpress-test
+    links:
+      - database-test:mariadb
+    environment:
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_NAME=mydbname0922
+      - WORDPRESS_TABLE_PREFIX=ab_
+      - WORDPRESS_DB_PASSWORD=hogehogepass
+      - WORDPRESS_DB_HOST=mariadb
+      - MYSQL_PORT_3306_TCP=3306
+      - VIRTUAL_HOST=www.hoge.net
+      - LETSENCRYPT_HOST=www.hoge.net
+      - LETSENCRYPT_EMAIL=hoge@email.com
+    depends_on:
+      - database
+    restart: unless-stopped
+    ports:
+      - "49800:80"
+    working_dir: /var/www/html
+    volumes:
+      - /home/centos/DOCKER_DIR/test_wordpress/:/var/www/html/
+
+  database:
+    image: mariadb:latest
+    container_name: database-test
+    environment:
+      - MYSQL_ROOT_PASSWORD=hogehogeroot
+      - MYSQL_DATABASE=mydbname0922
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=hogehogepass
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+
+networks:
+  default:
+    external:
+      name: shared
