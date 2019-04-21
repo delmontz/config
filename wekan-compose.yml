@@ -1,0 +1,31 @@
+version: '2'
+services:
+  wekan:
+    image: wekanteam/wekan:latest
+    container_name: wekan
+    links:
+      - wekandb
+    environment:
+      - MONGO_URL=mongodb://wekandb/wekan
+      - ROOT_URL=https://hoge.dgl.tokyo
+      - VIRTUAL_HOST=hoge.dgl.tokyo
+      - LETSENCRYPT_HOST=hoge.dgl.tokyo
+      - LETSENCRYPT_EMAIL=hoge@gmail.com
+    ports:
+      - hoge:8080
+    depends_on:
+      - wekandb
+    restart: always
+
+
+  wekandb:
+    image: mongo:3.2.14
+    container_name: wekan-db
+    volumes:
+      - /home/hoge/DOCKER_DIR/volume/wekan-db/:/data/db
+    restart: always
+
+networks:
+  default:
+    external:
+      name: shared
